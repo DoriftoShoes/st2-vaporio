@@ -12,7 +12,7 @@
     board_id:
       type: "string"
       description: "ID of board to scan"
-      default: "all"
+      default: "1"
     ssl:
       type: "boolean"
       description: "SSL enable/disable"

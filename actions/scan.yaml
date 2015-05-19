@@ -1,0 +1,19 @@
+---
+  name: "scan"
+  runner_type: "run-python"
+  description: "Scan board data"
+  enabled: true
+  entry_point: "scan.py"
+  parameters:
+    host:
+      type: "string"
+      description: "API host to query"
+      required: true
+    board_id:
+      type: "string"
+      description: "ID of board to scan"
+      default: "all"
+    ssl:
+      type: "boolean"
+      description: "SSL enable/disable"
+      default: true

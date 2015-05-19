@@ -31,4 +31,4 @@
     ssl:
       type: "boolean"
       description: "SSL enable/disable"
-      default: true
+      default: false

@@ -1,0 +1,34 @@
+---
+  name: "read_sensor"
+  runner_type: "run-python"
+  description: "Retrieve sensor data"
+  enabled: true
+  entry_point: "read_sensor.py"
+  parameters:
+    host:
+      type: "string"
+      description: "API host to query"
+      required: true
+    sensor_type:
+      description: "Type of sensor"
+      enum:
+        - temperature
+        - thermistor
+        - current
+        - humidity
+        - led
+        - ipmb
+        - door_ock
+        - pressure
+    board_id:
+      type: "string"
+      description: "ID of board to scan"
+      default: "all"
+    port_id:
+      type: "string"
+      description: "Port of sensor to query"
+      default: "all"
+    ssl:
+      type: "boolean"
+      description: "SSL enable/disable"
+      default: false

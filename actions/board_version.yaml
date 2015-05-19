@@ -1,0 +1,19 @@
+---
+  name: "board_version"
+  runner_type: "run-python"
+  description: "Version data"
+  enabled: true
+  entry_point: "board_version.py"
+  parameters:
+    host:
+      type: "string"
+      description: "API host to query"
+      required: true
+    board_id:
+      type: "string"
+      description: "ID of board to scan"
+      default: "all"
+    ssl:
+      type: "boolean"
+      description: "SSL enable/disable"
+      default: false

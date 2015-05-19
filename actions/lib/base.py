@@ -36,11 +36,9 @@ class BaseVaporIOAction(Action):
 
     def _get_request(self, host, endpoint, ssl=False):
         url = self._build_url(host=host, endpoint=endpoint, ssl=ssl)
-        self.logger.info(url)
         s = requests.Session()
         s.mount('https://', MyAdapter())
         r = s.get(url, verify=False)
-        self.logger.info(r.text)
         return yaml.safe_load(r.text)
 
     def _post_request(self, host, endpoint, data, ssl=False):

@@ -1,0 +1,5 @@
+---
+name: "ports"
+action_ref: "vaporio.get_ports"
+formats:
+  - "{{host}} {{board_id}}"

@@ -1,0 +1,5 @@
+---
+name: "sensor"
+action_ref: "vaporio.read_sensor"
+formats:
+  - "{{host}} {{board_id}} {{sensor_type}} {{port_id}}"

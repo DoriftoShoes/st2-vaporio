@@ -1,0 +1,5 @@
+---
+name: "version"
+action_ref: "vaporio.board_version"
+formats:
+  - "{{host}} {{board_id}}"

@@ -1,0 +1,5 @@
+---
+name: "scan"
+action_ref: "vaporio.scan"
+formats:
+  - "{{host}} {{board_id}}"

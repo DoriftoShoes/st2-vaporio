@@ -18,7 +18,7 @@ __all = [
     ]
 
 API_VERSION = '0.5'
-API_PORT = 5000
+API_PORT = '5000'
 URL_BASE = 'vaporcore'
 
 
@@ -31,11 +31,12 @@ class BaseVaporIOAction(Action):
             protocol = "https:/"
         else:
             protocol = "http://"
-        return protocol + host + ':' + API_PORT + '/' + URL_BASE + '/' + API_VERSION + "/" + endpoint \
-            + "/"
+        return protocol + host + ':' + API_PORT + '/' + URL_BASE + '/' + API_VERSION + "/" \
+           + endpoint
 
     def _get_request(self, host, endpoint, ssl=False):
-        url = self._build_url(endpoint)
+        url = self._build_url(host=host, endpoint=endpoint, ssl=ssl)
+        self.logger.info(url)
         s = requests.Session()
         s.mount('https://', MyAdapter())
         r = s.get(url, verify=False)
@@ -43,6 +44,6 @@ class BaseVaporIOAction(Action):
         return yaml.safe_load(r.text)
 
     def _post_request(self, host, endpoint, data, ssl=False):
-        url = self._build_url(endpoint)
+        url = self._build_url(host=host, endpoint=endpoint, ssl=ssl)
         r = requests.post(url, data=data, verify=False)
         return yaml.safe_load(r.text)

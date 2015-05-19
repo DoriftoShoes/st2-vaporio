@@ -10,6 +10,6 @@ class Scan(BaseVaporIOAction):
         if board_id == 'all':
             board_id = "255"
         endpoint = "scan/%s" % board_id
-        boards = self._get_request(endpoint=endpoint)
+        boards = self._get_request(host=host, endpoint=endpoint, ssl=ssl)
 
         return boards
